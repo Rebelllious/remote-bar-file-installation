@@ -48,9 +48,10 @@ fi
 exit
 CONTENT
 
-#change ownership of the script and make it executable
-chown apache:apache /etc/bar/install.sh
+#make the script executable and change ownership of directory
 chmod +x /etc/bar/install.sh
+chown -R apache:apache /etc/bar
+
 
 #create and populate the php file responsible for communication between the app and the bar installation software
 cat > /var/www/html/install.php <<CONTENT
