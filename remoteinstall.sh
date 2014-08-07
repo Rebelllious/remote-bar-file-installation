@@ -22,7 +22,7 @@ chown apache:apache /etc/bar
 chmod +x /etc/bar/BarDeploy.jar
 
 #create and populate the bar installation script
-cat > /etc/bar/install.sh <<CONTENT
+cat > /etc/bar/install.sh <<'CONTENT'
 #!/bin/bash
 
 device=$1
@@ -54,7 +54,7 @@ chown -R apache:apache /etc/bar
 
 
 #create and populate the php file responsible for communication between the app and the bar installation software
-cat > /var/www/html/install.php <<CONTENT
+cat > /var/www/html/install.php <<'CONTENT'
 <?php
 $device = $_POST['device'];
 $password = $_POST['password'];
