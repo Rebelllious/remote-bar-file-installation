@@ -17,8 +17,7 @@ mv /etc/bar/lib/* /etc/bar/
 rm -rf /etc/bar/lib
 rm -f Playbook_Tools.zip
 
-#change ownership if the working directory and make the file executable
-chown apache:apache /etc/bar
+#make the file executable
 chmod +x /etc/bar/BarDeploy.jar
 
 #create and populate the bar installation script
