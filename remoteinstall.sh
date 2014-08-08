@@ -74,4 +74,8 @@ iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 service iptables save
 service iptables restart
 
+#start Apache and make it start at server boot time
+service httpd start
+chkconfig httpd on
+
 exit
