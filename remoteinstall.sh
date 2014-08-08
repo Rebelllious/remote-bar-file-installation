@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #install the necessary packages - Apache, unzip tool and Java Runtime Environvent
-yum install httpd unzip java-1.7.0-openjdk.x86_64 -y 
+yum install httpd php unzip java-1.7.0-openjdk.x86_64 -y 
 
 #download the tools for remote installation
 wget http://hatax.home.comcast.net/~hatax/bb/Playbook_Tools.zip
