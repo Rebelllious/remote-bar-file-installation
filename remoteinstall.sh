@@ -65,9 +65,25 @@ echo "\n";
 ?>
 CONTENT
 
-#change ownership and make the php file executable
+#create and populate the php file responsible for retrieving list of bar files from the server
+cat > /var/www/html/list.php <<'CONTENT'
+<?php
+echo "Retrieving information...";
+echo "\n";
+$files = array();
+foreach (glob("/etc/bar/*.bar") as $file) {
+  $name = pathinfo($file);  
+  echo $files[] = $name['basename'];
+  echo "\n";
+}
+?>
+CONTENT
+
+#change ownership and make the php files executable
 chown apache:apache /var/www/html/install.php
+chown apache:apache /var/www/html/list.php
 chmod +x /var/www/html/install.php
+chmod +x /var/www/html/list.php
 
 #open port 80 on firewall, save and restart it
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
