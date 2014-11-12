@@ -60,7 +60,7 @@ $password = $_POST['password'];
 $file = $_POST['file'];
 echo "Installing the app. Please wait a little...";
 echo "\n";
-echo exec("/etc/bar/install.sh $device $password $file");
+echo shell_exec("/etc/bar/install.sh $device $password $file");
 echo "\n";
 ?>
 CONTENT
