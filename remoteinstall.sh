@@ -55,13 +55,19 @@ chown -R apache:apache /etc/bar
 #create and populate the php file responsible for communication between the app and the bar installation software
 cat > /var/www/html/install.php <<'CONTENT'
 <?php
-$device = $_POST['device'];
-$password = $_POST['password'];
-$file = $_POST['file'];
-echo "Installing the app. Please wait a little...";
-echo "\n";
-echo exec("/etc/bar/install.sh $device $password $file");
-echo "\n";
+
+if (preg_match('/;/i', $_REQUEST["device"]) || preg_match('/;/i', $_REQUEST["password"]) || preg_match('/;/i', $_REQUEST["file"])) {
+	die("No way! No malicious actions, please.\n");
+}
+else {
+	$device = $_POST['device'];
+	$password = $_POST['password'];
+	$file = $_POST['file'];
+	echo "Installing the app. Please wait a little...";
+	echo "\n";
+	echo exec("/etc/bar/install.sh $device $password $file");
+	echo "\n";
+}
 ?>
 CONTENT
 
