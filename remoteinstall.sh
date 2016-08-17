@@ -4,7 +4,8 @@
 yum install httpd php unzip java-1.7.0-openjdk.x86_64 -y 
 
 #download the tools for remote installation
-wget http://hatax.home.comcast.net/~hatax/bb/Playbook_Tools.zip
+#wget http://hatax.home.comcast.net/~hatax/bb/Playbook_Tools.zip - no more accessible
+wget https://www.dropbox.com/s/2ei6l0pww8vt9aj/Playbook_Tools.zip
 
 #create our working directory and unzip the tools into it 
 mkdir /etc/bar
